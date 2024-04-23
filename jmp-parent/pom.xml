@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.jmp</groupId>
+	<artifactId>jmp-parent</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<name>jmp-parent</name>
+	<description>REST API - Architecture</description>
+	<properties>
+		<java.version>17</java.version>
+		<spring.boot.version>3.2.5</spring.boot.version>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<modules>
+		<module>jmp-domain</module>
+		<module>jmp-dto</module>
+		<module>jmp-service-api</module>
+		<module>jmp-cloud-service-impl</module>
+		<module>jmp-service-rest</module>
+	</modules>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<version>${spring.boot.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<version>${spring.boot.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>2.2.224</version>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.32</version>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<version>${spring.boot.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+			<version>2.4.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-hateoas</artifactId>
+			<version>${spring.boot.version}</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>${spring.boot.version}</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.13.0</version>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+					<release>${java.version}</release>
+					<compilerArgument>-parameters</compilerArgument>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
